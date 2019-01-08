@@ -7,7 +7,7 @@ specifically, the resizing affects CS, base slider speed, hitobject positions, a
 
 ### how to use this script
 
-*0. you must have **[Node.js](https://nodejs.org/)** installed*
+0. *you must have **[Node.js](https://nodejs.org/)** installed*
 1. download and extract this repo
 2. open a terminal in that directory and run node
 
