@@ -1,5 +1,5 @@
 const fs = require("fs");
-const c = require("./classes");
+const c = require("./osuresizer_classes");
 const readline = require("readline");
 
 const rl = readline.createInterface(

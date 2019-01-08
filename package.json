@@ -2,7 +2,7 @@
   "name": "osu-resizer",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "osu_resizer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
