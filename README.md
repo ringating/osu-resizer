@@ -1,5 +1,5 @@
 # osu resizer
-this is a tool to resize osu beatmaps
+this is a tool to resize [osu](https://osu.ppy.sh) beatmaps
 
 the resizing aims to scale every aspect of the map proportionally
 
