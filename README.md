@@ -11,7 +11,8 @@ specifically, the resizing affects CS, base slider speed, hitobject positions, a
 
 you must have **[Node.js](https://nodejs.org/)** installed  
 1. download and extract this repo
-2. open a terminal in that directory and run node
+2. place your beatmap in the script's directory and rename it to "map.osu"
+3. open a terminal in that directory and run node
 
 
 sample run (via windows cmd.exe)  
