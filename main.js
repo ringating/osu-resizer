@@ -33,8 +33,9 @@ rl.question("Enter your desired Circle Size: ", (input) =>
     }
     catch(error)
     {
-        console.log("Error: map.osu not found!");
+        console.log("Error: " + mapFileName + " not found!");
         console.log("Please put a copy of your map in the same directory as this script.");
+        console.log("Ensure your map's file name is \"" + mapFileName + "\".");
         process.exit();
     }
 
@@ -46,9 +47,9 @@ rl.question("Enter your desired Circle Size: ", (input) =>
     var scalar = csToDiameter(desCS) / csToDiameter(ogCS);
 
     console.log("Your original CS is " + ogCS);
-    console.log("Your scalar is " + scalar);
+    //console.log("Your scalar is " + scalar);
 
-    // replace old SliderMultiplier with scaled
+    // replace old SliderMultiplier with scaled version
     var sliderMult =  parseFloat(ogMap.slice(ogMap.indexOf("SliderMultiplier:") + "SliderMultiplier:".length));
     var newSliderMult = (sliderMult*scalar).toPrecision(15);
     ogMap = ogMap.replace("SliderMultiplier:"+sliderMult, "SliderMultiplier:"+(newSliderMult));
@@ -57,10 +58,6 @@ rl.question("Enter your desired Circle Size: ", (input) =>
         console.log("Warning: Your resulting SliderMultiplier of " + newSliderMult + " is less than the minimum of 0.4!")
         console.log("The resulting map will have broken sliders!");
     }    
-
-    // duplicate map.osu to a file named map_[scalar].osu
-    const newFileName = "map_cs" + desCS + ".osu";
-    //fs.copyFileSync(mapFileName, newFileName);
 
     // get an array of all hitobjects from the map string and scale each one
     var hitObjSecTitle = "[HitObjects]";
@@ -75,7 +72,19 @@ rl.question("Enter your desired Circle Size: ", (input) =>
     }
 
     // write the map string into the new file that was generated
+    var newFileName = "map_cs" + desCS + ".osu";
     fs.writeFileSync(newFileName, ogMap, "utf8");
+    var finalPrint = newFileName + " is ";
+    if(scalar < 1)
+    {
+        finalPrint += (1-scalar).toPrecision(3)*100 + "% smaller";
+    }
+    else
+    {
+        finalPrint += (scalar-1).toPrecision(3)*100 + "% larger"
+    }
+    //finalPrint += " than " + mapFileName;
+    console.log(finalPrint);
 
     rl.close();
 });
