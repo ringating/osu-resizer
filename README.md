@@ -5,6 +5,8 @@ the resizing aims to scale every aspect of the map proportionally
 
 specifically, the resizing affects CS, base slider speed, hitobject positions, and slider anchor positions
 
+(the in-game editor's scale tool only affects hitobject positions)
+
 ### how to use this script
 
 you must have **[Node.js](https://nodejs.org/)** installed  
